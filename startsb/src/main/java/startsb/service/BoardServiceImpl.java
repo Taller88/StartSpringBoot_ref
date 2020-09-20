@@ -26,5 +26,9 @@ public class BoardServiceImpl implements BoardService {
 	public void insertBoard(BoardDto board) throws Exception {
 		boardMapper.insertBoard(board);
 	}
-
+	
+	@Override
+	public BoardDto openBoardDetail(int boardIdx) throws Exception{
+		return boardMapper.openBoardDetail(boardIdx);
+	}
 }

@@ -10,4 +10,5 @@ import startsb.dto.BoardDto;
 public interface BoardMapper {
 	List<BoardDto> selectBoardList() throws Exception;
 	void insertBoard(BoardDto board) throws Exception;
+	BoardDto openBoardDetail(int boardIdx) throws Exception;
 }

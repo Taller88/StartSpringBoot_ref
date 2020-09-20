@@ -33,4 +33,20 @@
 			)
 		]]>
 	</insert>
+	<select id="openBoardDetail" parameterType="int"
+		resultType="startsb.dto.BoardDto">
+		<![CDATA[
+			SELECT 
+				board_idx,
+				title,
+				contents,
+				hit_cnt,
+				created_datetime
+			FROM 
+				t_board
+			WHERE
+				board_idx=#{boardIdx}
+				AND deleted_yn='N'
+		]]>
+	</select>
 </mapper>

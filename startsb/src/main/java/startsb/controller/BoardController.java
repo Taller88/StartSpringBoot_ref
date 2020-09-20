@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import startsb.dto.BoardDto;
@@ -25,6 +27,15 @@ public class BoardController {
 		mv.addObject("list", list);
 		return mv;
 	}
+	
+	@RequestMapping("/board/openBoardDetail.do")
+	public ModelAndView openBoardDetail(@RequestParam int boardIdx) throws Exception{
+		ModelAndView mv=new ModelAndView("/board/boardDetail");
+		BoardDto board=boardService.openBoardDetail(boardIdx);
+		mv.addObject("board", board);
+		return mv;
+	} 
+	
 	@RequestMapping("/board/openBoardWrite.do")
 	public String openBoardWrite() throws Exception{
 		//디스페처 서블릿에 board 폴더에 있는 boardWrite.html 파일을 오픈하라는 명령을 전달
