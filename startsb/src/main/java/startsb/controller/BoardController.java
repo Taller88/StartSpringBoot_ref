@@ -2,6 +2,8 @@ package startsb.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,11 +17,14 @@ import startsb.service.BoardService;
 @Controller
 public class BoardController {
 
+	private Logger log=LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	private BoardService boardService;
 	
 	@RequestMapping("/board/openBoardList.do")
 	public ModelAndView openBoardList() throws Exception{
+		log.debug("openBoardList");
 		ModelAndView mv=new ModelAndView("board/boardList");//board/boardList.html 을 의미 
 		//Thymeleaf와 같은 템플릿을 사용할 경우 스프링 부트의 자동 설정기능으로 .html을 생략할 수 있다. 
 		
