@@ -25,4 +25,14 @@ public class BoardController {
 		mv.addObject("list", list);
 		return mv;
 	}
+	@RequestMapping("/board/openBoardWrite.do")
+	public String openBoardWrite() throws Exception{
+		//디스페처 서블릿에 board 폴더에 있는 boardWrite.html 파일을 오픈하라는 명령을 전달
+		return "board/boardWrite";
+	}
+	@RequestMapping("/board/insertBoard.do")
+	public String insertBoard(BoardDto board) throws Exception{
+		boardService.insertBoard(board);
+		return "redirect:/board/openBoardList.do";
+	}
 }
